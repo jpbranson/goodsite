@@ -1,0 +1,71 @@
+---
+title: First Test Post
+author: Joseph Branson
+date: '2019-02-15'
+slug: first-test-post
+categories: []
+tags:
+  - plot
+---
+
+#T-Town Throwdown
+
+##Roster:
++ Joseph Branson
+	+ handler defender
++ Austin Uhl
+	+ overall defensive priority
+	+ best in class, take away biggest cutter threat in any situation
++ Will Smith
+	+ cutter defense, under grinder
+	+ doesn't seal mark enough
++ Jason Dao
+	+ priority: handler defender
+	+ under fast cutters
+	+ good at poaching
++ Owen Barry
+	+ possible deep defender
+	+ under grinder
+	+ handler
++ Robert Hosemann
+	+ physical defense, takes away
+	+ only takes away deep in man defense
++ William Jones
++ Terrence Newson
+	+ under cutter, not necessarily deep cutters
+	+ not handler
++ Ethan Derby
+	+ backup handler
++ Stroud Tolleson
+	+ handler defense
+	+ under grinder
+
+##Defense
+
+
+##Offense
++ handler movement into cutter movement
++ be patient, look for deep shots
++ taking more shots closer to our endzone
++ when on the sidelines, looking reset as quickly as possible
+
+##Threats
++ deep cutter
+	+ Austin
+	+ Robert
+	+ Owen
+	+ Will Smith
+	+ Tee
++ quick fast never stops cutter
+	+ Austin
+	+ Robert
+	+ Stroud
+	+ Owen
+	+ Jason
++ handler
+	+ slow
+	+ fast
+	+ dominant
++ physical matchups
++ athletic cutter, not so much throwing skill
+
