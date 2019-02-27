@@ -1,0 +1,199 @@
+---
+title: "OCLC API Project"
+author: "Joseph Branson"
+date: '2019-02-27'
+output: html_document
+slug: oclc-api
+tags:
+  - book project
+  - portfolio
+  - programming
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Background
+I'm a bit of a compulsive book collector. It started slowly, but through the years I've accrued a few volumes. Generally, I like to associate each book with the circumstances under which I received/acquired it - these were for a paper about Frantz Fanon, these were after visiting Europe and becoming really interested in modern architecture, etc.
+
+Previously, this was also my method for organization. Books were grouped together by origin story. Sometimes this led to thematic groupings, but other times there appeared no apparent connection.
+
+Alas, after a few changes in apartment this system broke down, until I was left with an *almost* random ordering. Devising a system for reorganization on my own seemed an impossible task (or you know, really hard). However, there are other systems for such organization - namely, the Dewey Decimal Classification (DDC) and the Library of Congress Classification (LCC). 
+
+##Purpose
+This post is the result of my efforts to obtain DDC and LCC information for the associated ISBN values using the [OCLC Classify API](http://classify.oclc.org/classify2/api_docs/index.html). It is also my first significant endeavor in using R - I am very much looking for any code review or feedback.
+
+##Process
+```{r message=FALSE}
+library(xml2)
+library(plyr)
+library(tidyverse)
+library(DT)
+```
+
+```{r message=FALSE}
+book_csv <- "library_20190223200451.csv"
+book_list <- read_csv(book_csv)
+isbn_list <- book_list$isbn13
+options(scipen = 99)
+```
+
+I used [Libib](https://www.libib.com) to scan the ISBN barcodes from the books when available or input manually when not. It populated quite a bit of info itself.
+
+```{r echo=FALSE}
+glimpse(book_list)
+datatable(head(book_list[ ,c("authors","title", "publish_date", "pages","isbn13")]), rownames = FALSE)
+```
+
+
+My general approach was to break the process of retrieving one book's classification into steps and then `map()` that over the whole list of books. 
+
+  1. Get the XML object from OCLC
+  2. Parse that object and extract DDC, LCC, and OWI
+  3. Attach classification info back to respective book
+
+
+### Get the XML object from OCLC
+This function takes a value and a classification system (currently only "isbn13" and "owi"), queries the OCLC API, and returns a list (from xml) object for that value. 
+
+Future: generalize `type`, add support for other API fields, toggle for summary
+```{r}
+oclc_get_raw <- function(number, type="isbn13") {
+  
+    base_OCLC <- "http://classify.oclc.org/classify2/Classify?"
+    end_base_OCLC <- "&summary=true"
+
+  if(tolower(type) == "isbn13") {
+    lookup_type <- "isbn"
+  } else if(tolower(type) == "owi") {
+    lookup_type <- "owi"
+  } else {
+    message("Classification type not recognized.")
+    break
+  }
+  call_address <- paste0(base_OCLC, lookup_type, "=", number, end_base_OCLC)
+  oclc_xml_list <- read_xml(call_address) %>% as_list()
+  
+}
+```
+
+This next function is a little out of order, but I think I have to define it before it gets called in the following function. It simply retrieves a value ("ddc", "lcc", or "owi") from one of the xml_list objects and returns NA if not found. Some entries were missing DDC or LCC classifications. If they were missing OWI values, all three values would be missing.
+
+My lesson: R won't return NA if you point to nonexistent values; it will return NULL, which isn't a vector or list, thus causing further issues.
+```{r}
+retrieve_val <- function(value, xml_list) {
+  x1 <- attributes(xml_list[["classify"]][["recommendations"]][[value]][["mostPopular"]])[["nsfa"]]
+    ifelse(!is.null(x1), x1, NA)
+}
+
+#Hopefully this fixes the 1d thing, might've been missing some OWI
+retrieve_owi <- function(value, xml_list) {
+  x1 <- attributes(xml_list[["classify"]][["work"]])[[value]]
+    ifelse(!is.null(x1), x1, NA)
+}
+```
+
+### Parse that object and extract DDC, LCC, and OWI
+Each xml object had 1 of 3 codes:
+- "0" indicates a successful query
+- "4" indicates multiple entries for that ISBN value (not possible for OWI)
+- "102" indicates no entry found
+
+Below I treated 102 as an error and re-queried.
+
+For each "4", I retrieved the OWI of the first listing and used it to submit another query. Each OWI could only have a single result.
+
+After receiving an xml-list object with code "0", I extracted the classifications using the above functions and put them together in a data frame, replacing NULL values with NA.
+
+One of the messiest things about this code is all the repeated brackets and `attributes()`. I suspect there's a way to clean that up with `%>%` and `~.` but I'll have to investigate further.
+
+```{r}
+recs_xml_list <- function(oclc_xml_list) {
+  #Checking response code. "4" indicates multiple entries found for isbn, "102" indicates technical malfunction, "0" indicates successful retrieval
+  code <- attributes(oclc_xml_list[["classify"]][["response"]])[["code"]]  
+  
+  
+ if(code == 4 | code == 102) {
+   #Find OWI of first work and get xml object with it instead (or just trying again in case of 102)
+    owi2 <- attributes(oclc_xml_list[["classify"]][["works"]][[1]])[["owi"]]
+    oclc_xml_list <- oclc_get_raw(owi2, type = "owi")
+  } else  if(code==0) {
+    oclc_xml_list <- oclc_xml_list
+  } else {
+    #included for safety?
+    message("Unrecognized error code.")
+    break
+  }
+    #If successful retrieval, some books won't have lcc or dcc. These receive NA for the respective value.  
+      ddc <- retrieve_val("ddc", oclc_xml_list)
+      lcc <- retrieve_val("lcc", oclc_xml_list)
+      owi <- retrieve_owi("owi", oclc_xml_list)
+  #I was getting an error here about owi being a 1d vector or list so I am messing around with it
+  #Edit: turns out it was because some ISBN values aren't recorded, so OWI was returning NULL, which isn't 1d vector or list
+  recs_df <- data_frame(ddc = ddc, lcc = lcc, owi = owi)
+  recs_df
+}
+```
+
+
+### Attach classification info back to respective book
+This code runs over the whole `isbn13` column in `book_list`. The first command is what takes the longest. I'm not sure what the limiting factor is there, but speeding it up would definitely be nice.
+
+I also don't love that I've made it stick together a whole list of xml objects then parse them. I suspect it would be faster to do one query, parse, return values, then move on to next query.
+
+Future: I want to make a way to attach values back to original list by matching the ISBN. Right now it just collects them all into a long data frame and glues them back to the side.
+```{r cache=TRUE, results="hold"}
+raw_list <- map(book_list$isbn13, oclc_get_raw) 
+rec_list <- map(raw_list, recs_xml_list)
+
+classification <- ldply(rec_list, rbind)
+
+sum(is.na(classification$ddc))
+
+sum(is.na(classification$lcc))
+
+sum(is.na(classification$owi))
+
+nrow(classification)
+```
+
+```{r}
+book_list <- cbind(book_list, classification)
+
+isbn_class <- cbind(isbn = book_list$isbn13, classification)
+
+```
+
+```{r echo=FALSE}
+datatable(book_list[ ,c("authors","title", "publish_date", "pages","isbn13", "ddc","lcc", "owi")], rownames = FALSE, options = list(
+  columnDefs = list(list(className = 'dt-center', targets = 6)),
+  pageLength = 40,
+  lengthMenu = c(15, 40, 60, 100),
+  scrollX=TRUE
+))
+```
+
+
+```{r eval=FALSE}
+ggplot(isbn_class, aes(x=isbn, y = owi)) +
+  geom_jitter()
+```
+##Lessons
+This final approach is the product of many dead ends. My initial googling turned up [Open Library Books API](https://openlibrary.org/dev/docs/api/books), which looked very promising. It could send JSON objects, and it had tons of information about each title. Unfortunately, it was missing quite a few entries (~60).
+
+I then found the OCLC API, but after struggling with the less-than-cooperative XML formats I resumed searching to find the [ISBNdb API](https://isbndb.com/apidocs). Although it requires a paid plan, I conceded that a paid service ($10) would probably be more complete and responsive. The cost would certainly be worth a few hours of hacking.
+
+In the end, it also wasn't as complete as I would hope. However, I did learn how to submit `GET` requests using `add_headers()`. My lesson: if you want `X-API-KEY: MY-KEY`, the function will add ": " itself - `add_headers("X-API-KEY" = my_key)`.
+
+```{r}
+#Need function to update df individually, not in bulk. Also search based on matching isbn, not position in list
+amend_list <- function(isbn, type, large_df) {
+  out_list <- oclc_get_raw(isbn) %>% recs_xml_list()
+  large_df[which(large_df$isbn13==isbn), type] <- out_list[[type]]
+            }
+
+
+
+
+```
