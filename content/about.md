@@ -1,6 +1,67 @@
 ---
-date: "2016-05-05T21:48:51-07:00"
 title: About
+date: '2019-02-27'
 ---
 
-This is a "hello world" example website for the [**blogdown**](https://github.com/rstudio/blogdown) package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by [Yihui Xie](https://github.com/yihui/hugo-lithium).
+# Joseph Branson
+
+Oxford, Mississippi  
+[jpbranson@gmail.com](mailto:jpbranson@gmail.com)  - 6013317202  
+[jpbranson.rbind.io](https://jpbranson.rbind.io)  
+
+---
+## Experience
+
+### Mississippi Office of the State Public Defender  
+April – Aug. 2016  
+
+* *Data analyst intern* on [Caseload Standards Project](http://www.ospd.ms.gov/Task%20Force/ASSESSMENT%20OF%20CASELOADS%20IN%20STATE%20AND%20LOCAL%20INDIGENT%20DEFENSE%20SYSTEMS%20IN%20MISSISSIPPI%20-%20Dec%202016.pdf)  
+	- 	Collected criminal case dispositions for 2010 -2014 from MS Administrative Office of the Courts (>180,000 entries) and imported data into Excel
+	- Cleaned data and categorized counts according to code section used for indictment
+	- Assigned caseload weights (hours needed to try) based on study conducted by the Public Policy Research Institute at Texas A&M University
+	- Gathered estimates for indigence rates by contacting county circuit clerk offices (92)
+	- Performed calculations and provided final data included in report submitted to Public Defender Task Force
+	- Participated in closed policy seminars related to alternative sentencing initiatives and indigent representation in termination of parent rights cases
+
+### Center for Advanced Hindsight – behavioral economics lab associated with Dr. Dan Ariely  
+Sept. 2014 - July 2015  
+
+* *Research assistant*
+	- 	Participated as facilitator (administrator and compatriot) in multiple lab experiments, both alone and as a part of a team
+	- 	Assisted in transcribing experimental data to spreadsheets
+	- Proofread, edited, and trial tested experiment protocols and elements
+	- Provided content development for multiple programs and apps [(Conscience+ and Attaboy!)](https://advanced-hindsight.com/apps/)  
+* *Assistant to Lab Manager*
+	- 	Consulted on design of lab program in local community
+	- Canvassed possible donors and provided recommendations regarding lab expansion (startup incubator)
+
+### HYDRa - Univ. of Mississippi Men’s Club Ultimate Frisbee Team   
+Jan. 2017 - Present  
+
+* *Co-Captain and President*   
+Aug. 2017 – Present
+
+	- Communicate with team and school administration to organize practices and team activities
+	- Maintain compliance with Sports Clubs policies
+	- Organize fitness program for team and coordinate four travel trips per semester to collegiate tournaments
+	- Provide on-field leadership during games and tournaments
+
+### Newk’s Eatery  
+ Aug. 2017 - Present  
+ 
+* *Front of House Partner*  
+	- Assist customers through transaction process with attentiveness and efficiency
+	- Serve food and satisfy any additional requests
+	- Maintain professional decorum and a clean and sanitary environment
+
+____
+## Education
+
+
+####  **University of Mississippi - Jan. 2017 – May 2019**  
+Bachelor of Arts in Economics with Minor in Mathematics (May 2019)
+
+####  **Duke University - Aug. 2014 – Dec. 2016**  
+Bachelor of Arts in Economics (transferred Dec. 2016)  
+		  -  `Angier B. Duke Memorial Scholarship` Duke University-managed academic merit-based scholarship, offered to those who exhibit exceptional intellectual ambition and curiosity  
+		  - `Rothermere Quasi Endowment Fund`  Scholarship to spend a summer term at New College in Oxford, UK studying political philosophy

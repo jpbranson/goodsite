@@ -2,7 +2,9 @@
 title: "OCLC API Project"
 author: "Joseph Branson"
 date: '2019-02-27'
-output: html_document
+output:
+  blogdown::html_page:
+    toc: true
 slug: oclc-api
 tags:
   - book project
@@ -20,6 +22,18 @@ tags:
 <link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#process">Process</a><ul>
+<li><a href="#get-the-xml-object-from-oclc">Get the XML object from OCLC</a></li>
+<li><a href="#parse-that-object-and-extract-ddc-lcc-and-owi">Parse that object and extract DDC, LCC, and OWI</a></li>
+<li><a href="#attach-classification-info-back-to-respective-book">Attach classification info back to respective book</a></li>
+</ul></li>
+<li><a href="#mistakes-and-lessons">Mistakes and Lessons</a></li>
+</ul>
+</div>
 
 <div id="background" class="section level2">
 <h2>Background</h2>
@@ -30,9 +44,7 @@ tags:
 <div id="purpose" class="section level2">
 <h2>Purpose</h2>
 <p>This post is the result of my efforts to obtain DDC and LCC information for the associated ISBN values using the <a href="http://classify.oclc.org/classify2/api_docs/index.html">OCLC Classify API</a>. It is also my first significant endeavor in using R - I am very much looking for any code review or feedback.</p>
-</div>
-<div id="process" class="section level2">
-<h2>Process</h2>
+<p>So far I’ve achieved the first goal I set out, but along the way I’ve stumbled upon so many other cool things to do. Certainly there might be some potential for an API wrapper if that’s something R could use.</p>
 <pre class="r"><code>library(xml2)
 library(plyr)
 library(tidyverse)
@@ -68,6 +80,9 @@ options(scipen = 99)</code></pre>
 ## $ isbn13         &lt;dbl&gt; 9780198279952, 9780440180296, 9780195367560, 97...</code></pre>
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[["Terence Ball","Kurt Vonnegut","Edward E. Curtis IV","Kurt Vonnegut","Kurt Vonnegut","Toni Morrison"],["Reappraising Political Theory","Slaughterhouse-Five","Muslims in America: A Short History (Religion in American Life)","Cat's Cradle: A Novel","Player Piano","Bluest Eye, The"],["1995-01-26","1991-11-03","2009-10-01","1998-09-08",null,"1993-12-28"],[326,215,168,304,341,215],[9780198279952,9780440180296,9780195367560,9780385333481,9780385333788,9780375411557]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>authors<\/th>\n      <th>title<\/th>\n      <th>publish_date<\/th>\n      <th>pages<\/th>\n      <th>isbn13<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="process" class="section level2">
+<h2>Process</h2>
 <p>My general approach was to break the process of retrieving one book’s classification into steps and then <code>map()</code> that over the whole list of books.</p>
 <ol style="list-style-type: decimal">
 <li>Get the XML object from OCLC</li>
@@ -110,10 +125,15 @@ retrieve_owi &lt;- function(value, xml_list) {
 </div>
 <div id="parse-that-object-and-extract-ddc-lcc-and-owi" class="section level3">
 <h3>Parse that object and extract DDC, LCC, and OWI</h3>
-<p>Each xml object had 1 of 3 codes: - “0” indicates a successful query - “4” indicates multiple entries for that ISBN value (not possible for OWI) - “102” indicates no entry found</p>
-<p>Below I treated 102 as an error and re-queried.</p>
-<p>For each “4”, I retrieved the OWI of the first listing and used it to submit another query. Each OWI could only have a single result.</p>
-<p>After receiving an xml-list object with code “0”, I extracted the classifications using the above functions and put them together in a data frame, replacing NULL values with NA.</p>
+<p>Each xml object had 1 of 3 codes:</p>
+<ul>
+<li><code>&quot;0&quot;</code> indicates a successful query</li>
+<li><code>&quot;4&quot;</code> indicates multiple entries for that ISBN value (not possible for OWI)</li>
+<li><code>&quot;102&quot;</code> indicates no entry found</li>
+</ul>
+<p>Below I mistakenly treat 102 as an error and re-query.</p>
+<p>For each <code>&quot;4&quot;</code>, I retrieved the OWI of the first listing and used it to submit another query. Each OWI could only have a single result.</p>
+<p>After receiving an xml-list object with code <code>&quot;0&quot;</code>, I extracted the classifications using the above functions and put them together in a data frame, replacing NULL values with NA.</p>
 <p>One of the messiest things about this code is all the repeated brackets and <code>attributes()</code>. I suspect there’s a way to clean that up with <code>%&gt;%</code> and <code>~.</code> but I’ll have to investigate further.</p>
 <pre class="r"><code>recs_xml_list &lt;- function(oclc_xml_list) {
   #Checking response code. &quot;4&quot; indicates multiple entries found for isbn, &quot;102&quot; indicates technical malfunction, &quot;0&quot; indicates successful retrieval
@@ -171,8 +191,8 @@ isbn_class &lt;- cbind(isbn = book_list$isbn13, classification)</code></pre>
   geom_jitter()</code></pre>
 </div>
 </div>
-<div id="lessons" class="section level2">
-<h2>Lessons</h2>
+<div id="mistakes-and-lessons" class="section level2">
+<h2>Mistakes and Lessons</h2>
 <p>This final approach is the product of many dead ends. My initial googling turned up <a href="https://openlibrary.org/dev/docs/api/books">Open Library Books API</a>, which looked very promising. It could send JSON objects, and it had tons of information about each title. Unfortunately, it was missing quite a few entries (~60).</p>
 <p>I then found the OCLC API, but after struggling with the less-than-cooperative XML formats I resumed searching to find the <a href="https://isbndb.com/apidocs">ISBNdb API</a>. Although it requires a paid plan, I conceded that a paid service ($10) would probably be more complete and responsive. The cost would certainly be worth a few hours of hacking.</p>
 <p>In the end, it also wasn’t as complete as I would hope. However, I did learn how to submit <code>GET</code> requests using <code>add_headers()</code>. My lesson: if you want <code>X-API-KEY: MY-KEY</code>, the function will add “:” itself - <code>add_headers(&quot;X-API-KEY&quot; = my_key)</code>.</p>

@@ -2,7 +2,9 @@
 title: "OCLC API Project"
 author: "Joseph Branson"
 date: '2019-02-27'
-output: html_document
+output:
+  blogdown::html_page:
+    toc: true
 slug: oclc-api
 tags:
   - book project
@@ -24,7 +26,9 @@ Alas, after a few changes in apartment this system broke down, until I was left 
 ##Purpose
 This post is the result of my efforts to obtain DDC and LCC information for the associated ISBN values using the [OCLC Classify API](http://classify.oclc.org/classify2/api_docs/index.html). It is also my first significant endeavor in using R - I am very much looking for any code review or feedback.
 
-##Process
+So far I've achieved the first goal I set out, but along the way I've stumbled upon so many other cool things to do. Certainly there might be some potential for an API wrapper if that's something R could use.
+
+
 ```{r message=FALSE}
 library(xml2)
 library(plyr)
@@ -46,6 +50,7 @@ glimpse(book_list)
 datatable(head(book_list[ ,c("authors","title", "publish_date", "pages","isbn13")]), rownames = FALSE)
 ```
 
+##Process
 
 My general approach was to break the process of retrieving one book's classification into steps and then `map()` that over the whole list of books. 
 
@@ -96,15 +101,16 @@ retrieve_owi <- function(value, xml_list) {
 
 ### Parse that object and extract DDC, LCC, and OWI
 Each xml object had 1 of 3 codes:
-- "0" indicates a successful query
-- "4" indicates multiple entries for that ISBN value (not possible for OWI)
-- "102" indicates no entry found
 
-Below I treated 102 as an error and re-queried.
+- `"0"` indicates a successful query
+- `"4"` indicates multiple entries for that ISBN value (not possible for OWI)
+- `"102"` indicates no entry found
 
-For each "4", I retrieved the OWI of the first listing and used it to submit another query. Each OWI could only have a single result.
+Below I mistakenly treat 102 as an error and re-query.
 
-After receiving an xml-list object with code "0", I extracted the classifications using the above functions and put them together in a data frame, replacing NULL values with NA.
+For each `"4"`, I retrieved the OWI of the first listing and used it to submit another query. Each OWI could only have a single result.
+
+After receiving an xml-list object with code `"0"`, I extracted the classifications using the above functions and put them together in a data frame, replacing NULL values with NA.
 
 One of the messiest things about this code is all the repeated brackets and `attributes()`. I suspect there's a way to clean that up with `%>%` and `~.` but I'll have to investigate further.
 
@@ -179,7 +185,7 @@ datatable(book_list[ ,c("authors","title", "publish_date", "pages","isbn13", "dd
 ggplot(isbn_class, aes(x=isbn, y = owi)) +
   geom_jitter()
 ```
-##Lessons
+##Mistakes and Lessons
 This final approach is the product of many dead ends. My initial googling turned up [Open Library Books API](https://openlibrary.org/dev/docs/api/books), which looked very promising. It could send JSON objects, and it had tons of information about each title. Unfortunately, it was missing quite a few entries (~60).
 
 I then found the OCLC API, but after struggling with the less-than-cooperative XML formats I resumed searching to find the [ISBNdb API](https://isbndb.com/apidocs). Although it requires a paid plan, I conceded that a paid service ($10) would probably be more complete and responsive. The cost would certainly be worth a few hours of hacking.
