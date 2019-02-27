@@ -1,0 +1,81 @@
+---
+title: "Clips Collection"
+author: "Joseph Branson"
+date: '2019-02-27'
+output:
+  blogdown::html_page:
+    toc: true
+slug: clips-collection
+tags:
+  - ultimate frisbee
+---
+
+Some clips I've pulled from games, along with thoughts. Trying to become a better student of the game.
+
+Future intention: have each game with its own page, as well as one page with all
+
+## Pitt-Minn 2016 Semi
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'windingpoliteivorygull')
+```
+Interesting poach from Tang, leaves open handler moving to far side to contest first reset
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'barefrighteningibisbill')
+```
+Second example, Morgenstern does it. Both unsuccessful.  
+Pitt clears in a different way, so they probably identified that the middle handler stays and it’s the handler on the side that the disc was thrown that moves. Gives time for the defender to poach, then recover if necessary. Any downfield adjustments?  
+Way more effective if handlers aren’t liable to streak deep once moving to break side. So conditions to make this successful: on a handler (not cutter), person with disc can’t throw, handlers don’t streak often  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'zealousfastbullfrog')
+```
+grey duck uses zone(?), Jack Slevin continues swing motion and follows it across to gain some yards back into the middle  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'SnivelingUnsightlyFlicker')
+```
+1. connor anderson bites on swing, notice how his effort to recover allows upfield yards  
+2. dillon blades to earles twice in similar way, earles seems to use a screen to mask his movement  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'DearPleasedIraniangroundjay')
+```
+make your defender commit hips = easy money, although same third (not necessarily a huck though)  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'SneakyOddballBuck')
+```
+Jagt somehow gets the under - 5 other Grey Duck players behind/next to the disc, with all Pitt players between them and the disc. Here, the mark should contain downfield iso matchup - too much space for one man to defend. Shift flat (maybe he sorta does that), then take the around after Minn readjusts  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'AgedFrighteningLark')
+```
+Give and go strike cut leads to a Pitt roll. As with often happens on these calls, new strike defender ends up very force side. Lull them to sleep by thinking you’re out of the play, then easy inside shot. This is made easier in this scenario by the amount of upfield space remaining (Dillon would have shot otherwise) and discipline from Grey Duck stack to stay away from force side. Unsuccessful throw but great look  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'ParallelThickAntlion')
+```
+Morgenstern stays tight, keeps feet underneath. Also, he can see other Grey Duck handler, so he doesn’t have to worry as much about swing out to space. Maybe he hears an up call, maybe he just looks at the right time, but he gets a glimpse and has kept tight enough to pull that trigger. Good footwork, and I think more swings would get disrupted if people just went blind for these  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'OrderlyCandidGrub')
+```
+Christian Pitts comes from break side, catches Jagt looking at disc. In these situations lots of poaches will happen. Pitt scores because Grey Duck defender pulls off poach, which Jagt probably expected him to stick with. Morgenstern gets open other side. 
+
+Not always a bad thing to cut into obvious poaching scenarios - maybe we’ll confuse the defense, but we should also end up with an open person elsewhere. 
+
+In our redzone, our issue would be thus - person cutting into poach tries to make things happen. Other people see poach and aren’t sure if they are the one being affected. They activate. Chaos ensues.  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'EnragedFluidFennecfox')
+```
+Well timed and executed streak deep pull play from Dillon and Earles. Do exact same thing again to hold at 13-13  
+
+
+## Assorted
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'NeglectedNippyBarracuda')
+```
+- one man give and go  
+- one cutter tries to do too much and gets too involved

@@ -171,7 +171,7 @@ isbn_class <- cbind(isbn = book_list$isbn13, classification)
 
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, out.width = "100%"}
 datatable(book_list[ ,c("authors","title", "publish_date", "pages","isbn13", "ddc","lcc", "owi")], rownames = FALSE, options = list(
   columnDefs = list(list(className = 'dt-center', targets = 6)),
   pageLength = 40,
@@ -203,3 +203,4 @@ amend_list <- function(isbn, type, large_df) {
 
 
 ```
+
