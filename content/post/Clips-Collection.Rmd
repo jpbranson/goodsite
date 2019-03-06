@@ -14,6 +14,99 @@ Some clips I've pulled from games, along with thoughts. Trying to become a bette
 
 Future intention: have each game with its own page, as well as one page with all
 
+## NC State - Ohio State QCTU 2019
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'leanunevenbull')
+```
+Full point. Leadbelly leads with almost zone, tons of space, but clearly still matching up. Causes interesting problems. NC State still scores without a turn, but interesting nonetheless. Some adjustments could really lock it in  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'untriedsphericalamazondolphin')
+```
+Good end zone possession from NC State. People hold on the disc for 1,2 then dump and run. Swing, dump, fill, cut, etc. Missed abuse of roll call, but thrower recognizes poach and finds open receiver. Open receiver - where can they go?  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'SmugSpiffyDegu')
+```
+Flick OI blade to back corner. Cutter comes under then heads straight back, defender is already respecting that under. Help defender has right idea, can’t quite get there. What a great offensive move.  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'AgedDimpledAmethystinepython')
+```
+Two receivers in a row make relatively shallow cuts under towards the sideline. Both are looked off (first peels deep, which is good). Initiating laterally is good, but the cut should be more towards or away. Side note: vertical cuts will take you through more of the whole cutting lane. In this example, would second cutter have a chance at a cut if first made a sharper cut?  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'SillyTestyGraysquirrel')
+```
+Cute give and go from handlers. Isn’t stopped by an awkward floater. Reminds me of Justin Allen’s Callahan vid.  
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'AdeptCalmAlaskankleekai')
+```
+More junky D from Ohio State. Seems to really take away a ton of space. NC State swings to move out of it, but Ohio State appears to recover relatively well and force more swings. Throughout everything, notice spacing and cushions from defenders  
+
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'AgreeableAncientConure')
+```
+First mistake - not recognizing deep help has followed cutter under. Huck goes up, defender recovers, other defenders follow. Defenders don’t communicate who is staying. Each assumes the other will stay, both leave man, he’s open and catches the score. Fixed by more clear communication (and not necessarily covering thrower until later).  
+
+
+
+## Tulane - Penn QCTU 2019
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'bogussharpizuthrush')
+```
+Nice huck shape from Penn. Check footwork
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'distortedjealousblackrhino')
+```
+Penn defender gets beat upline and jumps the lane. Probably had to go a little blind. Tulane calls foul, still the right play by Penn (looked kinda clean, no contest). He didn’t immediately bid once he got beat, he started running up the line too, not sure if right move or not. Maybe baiting vs. denial?
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'remotesilentisabellineshrike')
+```
+Tulane defender gets beat force side, but help defender from stack comes in for D. Shows the danger of shallow upfield cuts (as opposed to all cuts coming at the disc)
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'illopulentguineapig')
+```
+Good OI flick blade move near the end zone from Tulane. Leo Warren throws this often. Defender caught sleeping, enough speed to reduce chance of D
+
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'talkativespecificarabianwildcat')
+```
+Completed flick huck but lots of traveling 
+
+
+
+
+## Texas - Tufts FWU 2019
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'WeeklyUltimateAmethystgemclam')
+```
+Marking in isolation. Disc is on break sideline - we should prioritize taking away low throws here. Higher throws almost by definition have more time to get d’ed. Also, should you shade inside, then transition around? Hard to say, seems like the around could be floated out there. 
+Maybe it’s the classic left-hand-low-right-hand-high scenario. Defender gets caught the fuck out looking though, great opportunity by Texas cutter. Not sure if they knew it was a bracket scenario. Also curious if marker should be at the 2 o’clock (peripheral upfield) position. 
+Should mark be close or far? I actually think this throw would have been taken away if the marker had been two steps back.
+
+
+## NC State - Umass QCTU 2019 Men’s Semi
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'WeeklyUltimateAmethystgemclam')
+```
+Handler swings disc and makes bad clear directly to the front. Not always a bad clear, but gotta respect space when someone is already there. Perhaps should have stayed in reset position where he already was.
+
+After getting reset off, someone needs to know they’re active. Front cutter could have tried something, he was electing not to, thrower needs to look at reset immediately. 
+
+
+## UNC - UMass QCTU 2019 Men’s Final
+```{r echo=FALSE}
+blogdown::shortcode_html('gfycat', 'frequentenragedbelugawhale')
+```
+UNC sets up pull play as side stack, clears out poaches, sends a player deep to draw two defenders, punishes with easy under
+
+
 ## Pitt-Minn 2016 Semi
 ```{r echo=FALSE}
 blogdown::shortcode_html('gfycat', 'windingpoliteivorygull')
