@@ -13,6 +13,16 @@ Oxford, Mississippi
 ## Experience
 
 ### Mississippi Office of the State Public Defender  
+June 2019 – present
+* *Data Analysis Consultant* impact of [House Bill 585](https://www.pewtrusts.org/~/media/assets/2014/09/pspp_mississippi_2014_corrections_justice_reform.pdf) criminal justice reforms
+  - Presented visualizations and key insights, working in close collaboration with State Public Defender
+  - Provided technical support (querying, validating, and visualizing) to the Marshall Project for research on gang control and violent crime in state prisons
+  - Performed exploratory and ad-hoc data analysis to assess potential impacts of criminal justice reforms passed in 2014
+  - Evaluated regression, time series, and spatial (GIS) statistical models in R with accompanying visualizations and interpretations
+  - Constructed novel datasets for MDOC daily prison population using R and [tabulizer](https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html)
+  - Imported, cleaned, and validated circuit criminal case history with PEER data from FY 2010-2018 (>300,000 rows) using R
+
+### Mississippi Office of the State Public Defender  
 April – Aug. 2016  
 
 * *Data analyst intern* on [Caseload Standards Project](http://www.ospd.ms.gov/Task%20Force/ASSESSMENT%20OF%20CASELOADS%20IN%20STATE%20AND%20LOCAL%20INDIGENT%20DEFENSE%20SYSTEMS%20IN%20MISSISSIPPI%20-%20Dec%202016.pdf)  
@@ -36,10 +46,10 @@ Sept. 2014 - July 2015
 	- Canvassed possible donors and provided recommendations regarding lab expansion (startup incubator)
 
 ### HYDRa - Univ. of Mississippi Men’s Club Ultimate Frisbee Team   
-Jan. 2017 - Present  
+Jan. 2017 - May 2019  
 
 * *Co-Captain and President*   
-Aug. 2017 – Present
+Aug. 2017 – May 2019
 
 	- Communicate with team and school administration to organize practices and team activities
 	- Maintain compliance with Sports Clubs policies

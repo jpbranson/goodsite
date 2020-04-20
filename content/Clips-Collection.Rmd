@@ -14,6 +14,18 @@ Some clips I've pulled from games, along with thoughts. Trying to become a bette
 
 Future intention: have each game with its own page, as well as one page with all
 
+## PoNY - Revolver Nationals 2018
+```{r echo=FALSE}
+
+```
+https://www.youtube.com/watch?v=G9LyaVJovu8
+
+Score 2-1, Kerns upline cut. Keegan has to take inside - someone can help him up the line, nobody can help him inside
+
+"Every offense has its set of rules, even if they're not codified"
+
+When an offense faces pressure, does it look/play different from when it doesn't face pressure? Feeling in rhythm when under pressure - balanced offense, good offense
+
 ## NC State - Ohio State QCTU 2019
 ```{r echo=FALSE}
 blogdown::shortcode_html('gfycat', 'leanunevenbull')
