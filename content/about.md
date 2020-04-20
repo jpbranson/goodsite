@@ -14,6 +14,7 @@ Oxford, Mississippi
 
 ### Mississippi Office of the State Public Defender  
 June 2019 – present
+
 * *Data Analysis Consultant* impact of [House Bill 585](https://www.pewtrusts.org/~/media/assets/2014/09/pspp_mississippi_2014_corrections_justice_reform.pdf) criminal justice reforms
   - Presented visualizations and key insights, working in close collaboration with State Public Defender
   - Provided technical support (querying, validating, and visualizing) to the Marshall Project for research on gang control and violent crime in state prisons
