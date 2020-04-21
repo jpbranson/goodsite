@@ -8,11 +8,4 @@ output:
 slug: oaw-city-app
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r}
-knitr::include_app("https://jpbranson.shinyapps.io/CityAppR/", height = "100%")
-```
-
+<iframe src="https://jpbranson.shinyapps.io/CityAppR/" width=1000 height=800"></iframe>
