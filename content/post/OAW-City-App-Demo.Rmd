@@ -8,4 +8,4 @@ output:
 slug: oaw-city-app
 ---
 
-<iframe src="https://jpbranson.shinyapps.io/CityAppR/" width=1000 height=800"></iframe>
+<p align="center"><iframe src="https://jpbranson.shinyapps.io/CityAppR/" width=800 height=600"></iframe></p>
