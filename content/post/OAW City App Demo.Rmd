@@ -1,0 +1,18 @@
+---
+title: "OAW City App Demo"
+author: "Joseph Branson"
+date: '2019-04-20'
+output:
+  blogdown::html_page:
+    toc: false
+slug: oaw-city-app
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+knitr::include_app("https://jpbranson.shinyapps.io/CityAppR/", height = "100%")
+```
+
