@@ -6,6 +6,7 @@ date: '2020-05-20'
 # Joseph Branson
 
 Memphis, Tennessee 
+
 [jpbranson@gmail.com](mailto:jpbranson@gmail.com)  - 6013317202  
 [jpbranson.rbind.io](https://jpbranson.rbind.io)  
 
