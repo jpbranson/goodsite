@@ -1,11 +1,11 @@
 ---
 title: About
-date: '2020-04-20'
+date: '2020-05-20'
 ---
 
 # Joseph Branson
 
-Oxford, Mississippi  
+Memphis, Tennessee 
 [jpbranson@gmail.com](mailto:jpbranson@gmail.com)  - 6013317202  
 [jpbranson.rbind.io](https://jpbranson.rbind.io)  
 
@@ -13,7 +13,7 @@ Oxford, Mississippi
 ## Experience
 
 ### Mississippi Office of the State Public Defender  
-June 2019 – present
+June 2019 – March 2020
 
 * *Data Analysis Consultant* impact of [House Bill 585](https://www.pewtrusts.org/~/media/assets/2014/09/pspp_mississippi_2014_corrections_justice_reform.pdf) criminal justice reforms
   - Presented visualizations and key insights, working in close collaboration with State Public Defender
