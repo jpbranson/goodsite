@@ -1,0 +1,15 @@
+---
+title: back in the saddle
+author: Joseph Branson
+date: '2026-07-22'
+slug: []
+categories: []
+tags: []
+build:
+  render: never
+  list: never
+  publishResources: false
+---
+
+
+# This is a test if I can publish the site again. I'm back in the saddle yeehaw

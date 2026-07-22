@@ -1,10 +1,12 @@
 baseurl = "/"
-languageCode = "en-us"
+locale = "en-US"
 title = "jpbranson"
 theme = "hugo-lithium"
 googleAnalytics = ""
-disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[services.disqus]
+    shortname = ""
 
 [permalinks]
     post = "/:year/:slug/"
@@ -43,3 +45,5 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     height = 50
     alt = "Logo"
 
+[security]
+  allowContent = ['.*']
