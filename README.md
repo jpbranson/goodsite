@@ -88,6 +88,27 @@ Put a post-specific image beside `index.Rmd` and reference it as
 Bundle resources may be published with the post, so use that folder only for
 files intended to accompany the public article.
 
+## Embed a Streamable video
+
+Upload the video to Streamable, wait for processing to finish, and copy the ID
+from its share URL. For example, `https://streamable.com/qzqs2f` has ID `qzqs2f`.
+In an `.Rmd` post, use an R chunk:
+
+````markdown
+```{r, echo=FALSE}
+blogdown::shortcode_html("streamable", "qzqs2f", 640, 332)
+```
+````
+
+The last two arguments are the video's width and height; they keep the player
+in the correct aspect ratio as the page resizes. In a plain `.md` post, use
+`{{< streamable "qzqs2f" "640" "332" >}}` instead. The template lives in
+`layouts/shortcodes/streamable.html`.
+
+The recovered Clips Collection files and original-to-Streamable mapping are
+documented in [recovered-gfycat/README.md](recovered-gfycat/README.md). Keep a
+separate backup of the video files; the website embeds videos hosted by Streamable.
+
 ## Preview and build
 
 Start the local preview from the project root:

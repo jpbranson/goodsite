@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 public
+
+# Local video backups; the site embeds the uploaded Streamable copies.
+/recovered-gfycat/videos/

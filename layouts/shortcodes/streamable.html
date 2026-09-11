@@ -1,0 +1,8 @@
+{{ $width := float (.Get 1 | default 16) }}
+{{ $height := float (.Get 2 | default 9) }}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: {{ mul 100 (div $height $width) }}%;">
+  <iframe src="https://streamable.com/e/{{ .Get 0 }}?autoplay=0"
+    title="Video clip" loading="lazy" frameborder="0" scrolling="no"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+</div>
