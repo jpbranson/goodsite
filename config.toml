@@ -3,7 +3,7 @@ locale = "en-US"
 title = "jpbranson"
 theme = "hugo-lithium"
 googleAnalytics = ""
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 
 [services.disqus]
     shortname = ""

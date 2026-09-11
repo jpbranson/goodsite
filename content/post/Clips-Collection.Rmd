@@ -6,6 +6,7 @@ output:
   blogdown::html_page:
     toc: true
 slug: clips-collection
+url: /clips-collection/
 tags:
   - ultimate frisbee
 ---

@@ -2,13 +2,9 @@
 title: back in the saddle
 author: Joseph Branson
 date: '2026-07-22'
-slug: []
+slug: back-in-the-saddle
 categories: []
 tags: []
-build:
-  render: never
-  list: never
-  publishResources: false
 ---
 
 
