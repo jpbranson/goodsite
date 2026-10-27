@@ -65,3 +65,11 @@ references to be present; it does not need to be run again. The original link
 CSV and recovered video files remain available as a backup.
 
 To repeat the recovery pass, run `python scripts/recover_gfycat.py` from the repository. Existing successful downloads are checked by hash and reused.
+
+## Local backup of the Streamable copies
+
+Streamable deletes inactive videos, so all 25 uploads were downloaded on
+2026-10-26 with yt-dlp into `streamable/`, named `<GfycatID>-<StreamableID>.mp4`.
+Every file was probed with ffprobe; durations match the originals above.
+Streamable re-encodes at up to 1280 px wide, so the full-size originals in
+`videos/` remain the best copies. Both folders are excluded from Git.

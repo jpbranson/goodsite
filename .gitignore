@@ -6,3 +6,6 @@ public
 
 # Local video backups; the site embeds the uploaded Streamable copies.
 /recovered-gfycat/videos/
+
+# Downloaded copies of the Streamable uploads (backup before Streamable inactivity deletion).
+/recovered-gfycat/streamable/
